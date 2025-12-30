@@ -1,0 +1,47 @@
+# ★ 1. BÖLÜM: GÜVENLİK (Google Girişi İçin - AYNEN KORUNDU) ★
+<IfModule mod_headers.c>
+    Header set Cross-Origin-Opener-Policy "same-origin-allow-popups"
+</IfModule>
+
+# ★ 2. BÖLÜM: REACT YÖNLENDİRMESİ (Sayfaların çalışması için - AYNEN KORUNDU) ★
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteBase /
+  
+  # İstenen dosya veya dizin gerçekten varsa, kuralı atla
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-d
+  
+  # Aksi takdirde, isteği index.html'ye yönlendir
+  RewriteRule . /index.html [L]
+</IfModule>
+
+# ★ 3. BÖLÜM: LİMİT AYARLARI (GÜNCELLENDİ) ★
+# cPanel'in oluşturduğu yapıyı koruduk ama sayıları artırdık.
+# Artık 2MB yerine 64MB, 30 saniye yerine 300 saniye izin var.
+
+<IfModule php8_module>
+   php_flag display_errors Off
+   php_value max_execution_time 300
+   php_value max_input_time 300
+   php_value max_input_vars 1000
+   php_value memory_limit 256M
+   php_value post_max_size 64M
+   php_value session.gc_maxlifetime 1440
+   php_value session.save_path "/var/cpanel/php/sessions/ea-php81"
+   php_value upload_max_filesize 64M
+   php_flag zlib.output_compression Off
+</IfModule>
+
+<IfModule lsapi_module>
+   php_flag display_errors Off
+   php_value max_execution_time 300
+   php_value max_input_time 300
+   php_value max_input_vars 1000
+   php_value memory_limit 256M
+   php_value post_max_size 64M
+   php_value session.gc_maxlifetime 1440
+   php_value session.save_path "/var/cpanel/php/sessions/ea-php81"
+   php_value upload_max_filesize 64M
+   php_flag zlib.output_compression Off
+</IfModule>

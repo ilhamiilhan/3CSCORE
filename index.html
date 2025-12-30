@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="tr"> <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    
+    <title>3C SCORE | 3 Bant Bilardo Performans Analizi ve İstatistik Platformu</title>
+    <meta name="description" content="3C SCORE ile 3 Bant bilardo ortalamanızı, EYS kayıtlarınızı ve bölgesel sıralamalarınızı veri odaklı analiz edin. Hemen ücretsiz başlayın.">
+    
+    <meta name="keywords" content="3C score, 3 bant bilardo, 3 cushion billiard, bilardo skor, bilardo ortalama hesaplama, bilardo performans analizi, bilardo istatistik, 3 bant, 3 cushion, bilardo, billiard, billiard score">
+    
+    <meta name="author" content="3C SCORE">
+
+    <meta property="og:title" content="3C SCORE | Bilardo Performansınızı Veriye Dönüştürün">
+    <meta property="og:description" content="Oyuncu gelişimini ve bölgesel sıralamaları kapsayan veri odaklı 3 Bant bilardo platformu.">
+    <meta property="og:image" content="/icon-192.png"> 
+    <meta property="og:url" content="https://www.3cscore.com/">
+    <meta property="og:type" content="website">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content=""> <link rel="manifest" href="/manifest.json" /> 
+    <meta name="theme-color" content="#2563eb" /> 
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-title" content="3C SCORE" />
+    
+    <link rel="icon" type="image/png" sizes="192x192" href="/icon-192.png" />
+    <link rel="apple-touch-icon" href="/icon-192.png" />
+    
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet"> 
+    
+    
+    <style>
+        /* Yükleme animasyonu için stil */
+        @keyframes spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+        .spin { animation: spin 1s linear infinite; }
+        .loading-bg { background-color: #f8fafc; } 
+    </style>
+    
+  </head>
+  <body>
+    <div id="root" class="loading-bg" style="min-height: 100vh;"> 
+      <div style="text-align: center; padding: 20px; color: #2563eb; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">
+          <svg class="spin h-10 w-10 text-blue-600 mx-auto" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+              <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+              <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+          </svg>
+          <p style="margin-top: 10px; font-size: 18px; font-weight: 600;">Yükleniyor...</p>
+      </div>
+    </div>
+    
+    <div id="install-prompt-container" class="fixed bottom-0 left-0 right-0 bg-white p-4 shadow-2xl z-[10000] transform translate-y-full transition-transform duration-500 ease-in-out" style="display: none;">
+        <div class="max-w-md mx-auto flex items-center">
+            <img src="/icon-192.png" alt="3C SCORE Logo" class="w-10 h-10 mr-4 rounded-lg shadow-md" />
+            <div class="flex-grow">
+                <p class="text-gray-800 font-bold">3C SCORE</p>
+                <p class="text-gray-500 text-xs">Uygulamayı ana ekranınıza ekleyin.</p>
+            </div>
+            <div class="flex gap-3 ml-4">
+                <button id="cancel-button" class="text-sm text-gray-500 hover:text-gray-700 font-semibold transition">İptal</button>
+                <button id="install-button" class="bg-blue-600 text-white px-4 py-2 rounded-full text-sm font-bold hover:bg-blue-700 transition">Yükle</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="ios-install-prompt" class="fixed bottom-0 left-0 right-0 bg-white p-4 shadow-2xl z-[10000] transform translate-y-full transition-transform duration-500 ease-in-out" style="display: none;">
+        <div class="max-w-md mx-auto flex items-center justify-between">
+            <p class="text-gray-800 font-semibold text-sm">Uygulamayı yüklemek için: Safari'de <span class="font-bold text-blue-600">Paylaş (↑)</span> -> Ana Ekrana Ekle</p>
+            <button id="ios-close-button" class="text-gray-500 hover:text-gray-800 font-semibold transition">Kapat</button>
+        </div>
+    </div>
+
+    <script type="module" src="/src/main.jsx"></script>
+    
+    </body>
+</html>
